@@ -24,7 +24,7 @@ public final class OpenInventoryRepository {
     Preconditions.checkNotNull(openInventory, "openInventory");
     Preconditions.checkArgument(
       !inventories.containsKey(userId),
-      "player already has an opened inventory"
+      "player already has an open inventory"
     );
     inventories.put(userId, openInventory);
   }
