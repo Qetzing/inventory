@@ -16,6 +16,7 @@ repositories {
   }
   maven {
     url 'https://repo.qetz.de/artifactory/repo-public'
+    allowInsecureProtocol true
     metadataSources {
       mavenPom()
       gradleMetadata()
