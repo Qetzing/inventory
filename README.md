@@ -9,7 +9,7 @@ the library offers extendability to serve your own personal demands.
 ### Inventories
 
 This is a standard inventory, which has all its logic in a class. This is the key
-design principle of [reactive-inventory](https://github.com/Qetzing/reactive-inventory).
+design principle of [reactive-inventory](https://github.com/cderszteler/reactive-inventory).
 
 ```java
 public final class YourInventory implements Inventory {
@@ -103,7 +103,7 @@ public final class YourInventory implements Inventory, ReactiveInventory {
 
 ### Actions
 
-A fundamental principle of [reactive-inventory](https://github.com/Qetzing/reactive-inventory)
+A fundamental principle of [reactive-inventory](https://github.com/cderszteler/reactive-inventory)
 is that you can't access the inventory directly while it is open. Therefore, you
 have actions, which can perform default operations like closing an inventory or
 do as complex things as you like.
@@ -162,18 +162,18 @@ public final class TriggerUpdateAction implements InventoryAction {
 
 <hr>
 
+## Download
+
 ### Prerequisites
 
 - Java 17
+- Spigot 1.12 (should work with higher versions)
 - Guice
-- Components package (https://github.com/Qetzing/components)
-  _Otherwise you can register the listener and create the injector by yourself_
+- Components package (https://github.com/cderszteler/components)
+  _Otherwise you can register the listener and add the module to your injector by yourself_
 
-<hr>
 
-### Download
-
-Via Gradle:
+### Via Gradle:
 
 ```groovy
   maven {
@@ -187,10 +187,10 @@ Via Gradle:
 ```
 
 ```groovy
-  implementation "de.qetz:reactive-inventory:2.0.0"
+  implementation "de.qetz:reactive-inventory:2.0.1"
 ```
 
-Via Maven:
+### Via Maven:
 
 ```xml
 <repository>
@@ -203,6 +203,18 @@ Via Maven:
 <dependency>
   <groupId>de.qetz</groupId>
   <artifactId>reactive-inventory</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
 </dependency>
 ```
+
+<hr>
+
+## Miscellaneous
+
+### Without [components](https://github.com/cderszteler/components) library
+
+If you choose to not use the
+[components](https://github.com/cderszteler/components) library,
+you must register the following listener `RemoveOpenedInventoryTrigger` and
+`InventoryInteractTrigger` as well as add this module `OpenInventoryModule`
+to your Guice injector.
