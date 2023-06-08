@@ -81,7 +81,9 @@ public enum MoveItemsPolicy implements InventoryPolicy {
 #### Reactive updates
 
 Inventories of a certain type can be updated by executing a certain action
-(more about this later on). After an update call, the `openUpdated` method of
+(more about this later on). This is helpful e.g. for inventories that show a
+poll and update the percentages live.
+After an update trigger, the `openUpdated` method of
 all inventories of a certain type is executed. By default, this method calls the
 normal `open` method, however you may want to cache your results, in which case
 you can override this method:
