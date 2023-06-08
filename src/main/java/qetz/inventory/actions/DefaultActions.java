@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import qetz.inventory.open.CloseAction;
+import qetz.inventory.open.ReOpenAction;
 import qetz.inventory.open.TriggerInteractAction;
 import qetz.inventory.open.TriggerUpdateAction;
 
@@ -13,10 +14,15 @@ import qetz.inventory.open.TriggerUpdateAction;
 public final class DefaultActions {
   private final TriggerInteractAction interact;
   private final TriggerUpdateAction update;
+  private final ReOpenAction reOpen;
   private final CloseAction close;
 
   public CloseAction close() {
     return close;
+  }
+
+  public ReOpenAction reOpen() {
+    return reOpen;
   }
 
   public TriggerUpdateAction update() {
