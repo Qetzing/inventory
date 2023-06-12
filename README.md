@@ -182,7 +182,7 @@ public final class TriggerUpdateAction implements InventoryAction {
 ```
 
 ```groovy
-  implementation 'qetz:reactive-inventory:2.0.0'
+  implementation 'qetz:reactive-inventory:2.0.1'
 ```
 
 ### Via Maven:
@@ -198,7 +198,7 @@ public final class TriggerUpdateAction implements InventoryAction {
 <dependency>
   <groupId>qetz</groupId>
   <artifactId>reactive-inventory</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
