@@ -104,24 +104,24 @@ public final class YourInventory implements Inventory, ReactiveInventory {
 ### Actions
 
 A fundamental principle of [reactive-inventory](https://github.com/cderszteler/reactive-inventory)
-is that you can't access the inventory directly while it is open. Therefore, you
-have actions, which can perform default operations like closing an inventory or
+is that you can't access the inventory directly while it is open (except for closing it).
+Therefore, you have actions, which can perform default operations like re-opening an inventory or
 do as complex things as you like.
 
-Default actions are combined available in the injectable class `DefaultActions`
-or individually injectable. All actions are performed in the, as well injectable,
-`OpenInventoryRepository` class. You can execute actions as following:
+Default actions like `ReOpenAction` or `TriggerUpdateAction` are available through
+their respective classes or injectable as well.
+All actions are performed in the, as well injectable, `OpenInventoryRepository` class.
+You can execute actions as following:
 
 
 ```java
 OpenInventoryRepostiory repository;
-DefaultActions actions;
 
 // This will close all open inventories of the type 'YourInventory'
-repository.performActionOnType(YourInventory.class, actions.close());
+repository.performActionOnType(YourInventory.class, ReOpenAction.lazy());
 
 // This will update the user's inventory
-repository.performActionForUser(actions.update(), userId);
+repository.performActionForUser(TriggerUpdateAction.lazy(), userId);
 ```
 
 You can even create your own Action; structure presented by a simple update action:

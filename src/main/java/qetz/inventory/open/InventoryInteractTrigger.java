@@ -1,4 +1,4 @@
-package qetz.inventory;
+package qetz.inventory.open;
 
 import com.google.inject.Inject;
 import lombok.AccessLevel;
@@ -9,14 +9,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import qetz.components.Component;
-import qetz.inventory.actions.DefaultActions;
-import qetz.inventory.open.OpenInventoryRepository;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE, onConstructor_ = @Inject)
 @Component
 public final class  InventoryInteractTrigger implements Listener {
   private final OpenInventoryRepository openInventories;
-  private final DefaultActions actions;
+  private final TriggerInteractAction triggerInteract;
 
   @EventHandler
   private void callInventoryInteract(InventoryClickEvent click) {
@@ -26,7 +24,10 @@ public final class  InventoryInteractTrigger implements Listener {
       return;
     }
 
-    openInventories.performActionForUser(actions.triggerInteract(click), userId);
+    openInventories.performActionForUser(
+      triggerInteract.withInventoryClick(click),
+      userId
+    );
   }
 
   private boolean isEventValid(InventoryClickEvent click) {
