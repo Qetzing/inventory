@@ -3,7 +3,7 @@ plugins {
   id 'maven-publish'
 }
 
-group 'de.qetz'
+group 'qetz'
 version '2.0.1'
 
 repositories {
@@ -16,11 +16,6 @@ repositories {
   }
   maven {
     url 'https://repo.qetz.de/artifactory/repo-public'
-    metadataSources {
-      mavenPom()
-      gradleMetadata()
-      artifact()
-    }
   }
 }
 
@@ -42,9 +37,6 @@ dependencies {
 publishing {
   publications {
     maven(MavenPublication) {
-      groupId = 'de.qetz'
-      artifactId = 'inventory'
-
       from(components.java)
     }
   }
