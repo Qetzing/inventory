@@ -178,16 +178,11 @@ public final class TriggerUpdateAction implements InventoryAction {
 ```groovy
   maven {
     url 'https://repo.qetz.de/artifactory/repo-public'
-    metadataSources {
-      mavenPom()
-      gradleMetadata()
-      artifact()
-    }
   }
 ```
 
 ```groovy
-  implementation "de.qetz:reactive-inventory:2.0.1"
+  implementation 'qetz:reactive-inventory:2.0.0'
 ```
 
 ### Via Maven:
@@ -201,9 +196,9 @@ public final class TriggerUpdateAction implements InventoryAction {
 
 ```xml
 <dependency>
-  <groupId>de.qetz</groupId>
+  <groupId>qetz</groupId>
   <artifactId>reactive-inventory</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
