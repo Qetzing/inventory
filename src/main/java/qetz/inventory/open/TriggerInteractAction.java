@@ -5,10 +5,10 @@ import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import qetz.inventory.actions.InventoryAction;
+import qetz.inventory.InventoryAction;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE, onConstructor_ = @Inject)
-public final class TriggerInteractAction implements InventoryAction {
+final class TriggerInteractAction implements InventoryAction {
   private InventoryClickEvent click;
 
   public TriggerInteractAction withInventoryClick(InventoryClickEvent click) {

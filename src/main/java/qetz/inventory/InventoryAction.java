@@ -1,4 +1,4 @@
-package qetz.inventory.actions;
+package qetz.inventory;
 
 import qetz.inventory.open.OpenInventory;
 

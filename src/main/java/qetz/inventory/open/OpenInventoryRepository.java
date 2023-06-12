@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import qetz.inventory.Inventory;
-import qetz.inventory.actions.InventoryAction;
+import qetz.inventory.InventoryAction;
 
 import java.util.Map;
 import java.util.Optional;

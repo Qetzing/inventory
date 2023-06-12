@@ -4,10 +4,16 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import qetz.inventory.actions.InventoryAction;
+import qetz.inventory.InventoryAction;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE, onConstructor_ = @Inject)
 public final class TriggerUpdateAction implements InventoryAction {
+  private static final TriggerUpdateAction lazy = new TriggerUpdateAction();
+
+  public static TriggerUpdateAction lazy() {
+    return lazy;
+  }
+
   @Override
   public ExecutableAction asExecutable() {
     return new InteractExecutable();
