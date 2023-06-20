@@ -32,8 +32,7 @@ public final class ReOpenAction implements InventoryAction {
     @Override
     public void perform() {
       Preconditions.checkNotNull(inventory, "inventory");
-      inventory.close();
-      inventory.open();
+      inventory.reOpen();
     }
   }
 }

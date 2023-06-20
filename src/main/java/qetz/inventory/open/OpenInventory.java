@@ -13,7 +13,8 @@ import qetz.inventory.ReactiveInventory;
 
 import java.util.UUID;
 
-import static qetz.inventory.PolicyRestrictedInventory.*;
+import static org.bukkit.event.inventory.InventoryCloseEvent.Reason.OPEN_NEW;
+import static qetz.inventory.PolicyRestrictedInventory.applySet;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class OpenInventory {
@@ -44,6 +45,11 @@ public final class OpenInventory {
 
   void close() {
     target().closeInventory();
+  }
+
+  void reOpen() {
+    target().closeInventory(OPEN_NEW);
+    inventory.open(target());
   }
 
   void update() {
