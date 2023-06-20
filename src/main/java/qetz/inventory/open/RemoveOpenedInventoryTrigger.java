@@ -18,7 +18,9 @@ public final class RemoveOpenedInventoryTrigger implements Listener {
   private void removeOnClose(InventoryCloseEvent close) {
     var userId = close.getPlayer().getUniqueId();
 
-    openedInventories.remove(userId);
+    if (close.getReason() != InventoryCloseEvent.Reason.OPEN_NEW) {
+      openedInventories.remove(userId);
+    }
   }
 
   @EventHandler
